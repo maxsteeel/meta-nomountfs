@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>NoMountFS</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div id="scroll-area">
+
+      <div id="view-home" class="view active">
+        <div class="status-card" id="status-card">
+          <div class="status-icon"><span class="icon" id="status-icon-glyph">layers</span></div>
+          <div>
+            <div class="status-title">NoMountFS</div>
+            <div class="status-sub" id="status-sub">Checking…</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon-box"><span class="icon">smartphone</span></div>
+          <div><div class="info-label">Device</div><div class="info-value" id="h-device">—</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon-box"><span class="icon">android</span></div>
+          <div><div class="info-label">Android</div><div class="info-value" id="h-android">—</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon-box"><span class="icon">memory</span></div>
+          <div><div class="info-label">Kernel</div><div class="info-value" id="h-kernel">—</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon-box"><span class="icon">hub</span></div>
+          <div><div class="info-label">Active NoMountFS mounts</div><div class="info-value" id="h-mounts">—</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon-box"><span class="icon">view_module</span></div>
+          <div><div class="info-label">Modules in mount_order</div><div class="info-value" id="h-modcount">—</div></div>
+        </div>
+      </div>
+
+      <div id="view-mounts" class="view">
+        <div class="section-title">Mounts</div>
+        <div class="hint-banner">
+          <span class="icon">info</span>
+          <span>Toggle mounts live without rebooting. Changes are <b>temporary</b> — original state restores on next boot.</span>
+        </div>
+        <div id="mounts-list"></div>
+      </div>
+
+      <div id="view-order" class="view">
+        <div class="section-title">Load Order</div>
+        <div class="hint-banner">
+          <span class="icon">info</span>
+          <span>Drag to reorder. <b>Bottom = highest priority</b> — wins on file collision. Save writes to <code style="font-size:11px">mount_order</code> and takes effect on next boot.</span>
+        </div>
+        <div id="order-list"></div>
+        <button class="btn btn-save" id="btn-save-order" disabled>
+          <span class="icon" style="font-size:18px">save</span> Save Order
+        </button>
+      </div>
+
+    </div><nav id="bottom-nav">
+      <div class="nav-item active" data-view="view-home">
+        <div class="nav-pill"><span class="icon">dashboard</span></div>
+        <span>Home</span>
+      </div>
+      <div class="nav-item" data-view="view-mounts">
+        <div class="nav-pill"><span class="icon">layers</span></div>
+        <span>Mounts</span>
+      </div>
+      <div class="nav-item" data-view="view-order">
+        <div class="nav-pill"><span class="icon">sort</span></div>
+        <span>Order</span>
+      </div>
+    </nav>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
